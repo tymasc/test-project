@@ -10,8 +10,10 @@ export default defineConfig(({ command }) => {
       [command === 'serve' ? 'global' : '_global']: {},
     },
     root: 'src',
+    base: './',
     build: {
       sourcemap: true,
+      outDir: '../dist',
       rollupOptions: {
         input: glob.sync('./src/*.html'),
         output: {
@@ -34,7 +36,6 @@ export default defineConfig(({ command }) => {
           },
         },
       },
-      outDir: '../dist',
       emptyOutDir: true,
     },
     plugins: [
